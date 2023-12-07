@@ -34,11 +34,11 @@
                             }
                             else if (numCon % 10 == 0)
                             {
-                                Console.WriteLine(tenDigitArray[numCon/10]);
+                                Console.WriteLine(tenDigitArray[numCon / 10]);
                             }
                             else
                             {
-                                Console.WriteLine($"{tenDigitArray[numCon / 10]} {singleDigitArray[numCon%10]}");
+                                Console.WriteLine($"{tenDigitArray[numCon / 10]} {singleDigitArray[numCon % 10]}");
                             }
                             break;
                         }
@@ -46,7 +46,7 @@
                     case 3:
                         {
                             int numCon = Convert.ToInt16(numberIn);
-                            Console.Write($"{singleDigitArray[numCon/100]} Hundred ");
+                            Console.Write($"{singleDigitArray[numCon / 100]} Hundred ");
                             if (numCon % 100 > 0 & numCon % 100 < 10)
                             {
                                 Console.WriteLine($"and {singleDigitArray[numCon % 100]}");
@@ -55,9 +55,9 @@
                             {
                                 Console.WriteLine($"and {teensDigitArray[numCon % 10]}");
                             }
-                            else if ((numCon / 10) % 10 <= 9& (numCon / 10) % 10>0)
+                            else if ((numCon / 10) % 10 <= 9 & (numCon / 10) % 10 > 0)
                             {
-                                Console.WriteLine($"and {tenDigitArray[(numCon / 10) % 10]} {singleDigitArray[numCon%10]}");
+                                Console.WriteLine($"and {tenDigitArray[(numCon / 10) % 10]} {singleDigitArray[numCon % 10]}");
                             }
                             else
                                 Console.WriteLine();
@@ -68,6 +68,46 @@
                     case 4:
                         {
                             int numCon = Convert.ToInt16(numberIn);
+                            Console.Write($"{singleDigitArray[numCon / 1000]} Thousand ");
+                            numCon %= 1000;
+
+                            if (numCon > 0 & numCon < 100)
+                            {
+                                if (numCon>0 &numCon<10)
+                                {
+                                    Console.WriteLine($"and {singleDigitArray[numCon]}");
+
+                                }
+                                else if (numCon < 20)
+                                {
+                                    numCon -= 10;
+                                    Console.WriteLine($"and {teensDigitArray[numCon]}");
+                                }
+                                else if (numCon % 10 == 0)
+                                {
+                                    Console.WriteLine(tenDigitArray[numCon / 10]);
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"{tenDigitArray[numCon / 10]} {singleDigitArray[numCon % 10]}");
+                                }
+                            }
+                            else if (numCon>=100 & numCon < 1000)
+                            {
+                                Console.Write($"{singleDigitArray[numCon / 100]} Hundred ");
+                                if (numCon % 100 > 0 & numCon % 100 < 10)
+                                {
+                                    Console.WriteLine($"and {singleDigitArray[numCon % 100]}");
+                                }
+                                else if ((numCon / 10) % 10 == 1)
+                                {
+                                    Console.WriteLine($"and {teensDigitArray[numCon % 10]}");
+                                }
+                                else if ((numCon / 10) % 10 <= 9 & (numCon / 10) % 10 > 0)
+                                {
+                                    Console.WriteLine($"and {tenDigitArray[(numCon / 10) % 10]} {singleDigitArray[numCon % 10]}");
+                                }
+                            }
                             Console.WriteLine();
                             break;
                         }
@@ -79,7 +119,7 @@
                             break;
                         }
                 }
-                if (!onOff) 
+                if (!onOff)
                 {
                     break;
                 }
