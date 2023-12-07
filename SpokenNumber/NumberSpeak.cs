@@ -9,18 +9,17 @@ namespace SpokenNumber
 {
     internal class NumberSpeak
     {
+        public static string[] singleDigitArray = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
+        public static string[] tenDigitArray = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
+        public static string[] teensDigitArray = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
+
         public static string SingleDigit(int num)
         {
-            string[] singleDigitArray = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
             return singleDigitArray[num];
         }
 
         public static string DoubleDigit(int num)
         {
-            string[] singleDigitArray = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
-            string[] tenDigitArray = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
-            string[] teensDigitArray = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
-
             string words ="";
 
             if (num < 20)
@@ -41,10 +40,6 @@ namespace SpokenNumber
 
         public static string TripleDigit(int num)
         {
-            string[] singleDigitArray = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
-            string[] tenDigitArray = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
-            string[] teensDigitArray = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
-
             string words = $"{singleDigitArray[num / 100]} Hundred";
             
             num %= 100;
@@ -68,10 +63,6 @@ namespace SpokenNumber
 
         public static string FourDigit(int num)
         {
-            string[] singleDigitArray = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
-            string[] tenDigitArray = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
-            string[] teensDigitArray = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
-
             string words = $"{singleDigitArray[num / 1000]} Thousand";
 
             num %= 1000;
