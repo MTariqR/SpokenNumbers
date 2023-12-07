@@ -46,18 +46,21 @@ namespace SpokenNumber
             string[] teensDigitArray = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
 
             string words = $"{singleDigitArray[num / 100]} Hundred";
+            
+            num %= 100;
 
-            if (num % 100 > 0 & num % 100 < 10)
+            if (num < 20)
             {
-                words += " and " + singleDigitArray[num % 100];
+                num -= 10;
+                words += $" and {teensDigitArray[num]}";
             }
-            else if ((num / 10) % 10 == 1)
+            else if (num % 10 == 0)
             {
-                words += " and " + teensDigitArray[num % 10];
+                words += $" and {tenDigitArray[num / 10]}";
             }
-            else if ((num / 10) % 10 <= 9 & (num / 10) % 10 > 0)
+            else
             {
-                words += $" and {tenDigitArray[(num / 10) % 10]} {singleDigitArray[num % 10]}";
+                words += $" and {tenDigitArray[num / 10]} {singleDigitArray[num % 10]}";
             }
 
             return words;
@@ -91,23 +94,27 @@ namespace SpokenNumber
                 }
                 else
                 {
-                    words += $"{tenDigitArray[num / 10]} {singleDigitArray[num % 10]}";
+                    words += $" {tenDigitArray[num / 10]} {singleDigitArray[num % 10]}";
                 }
             }
-            else if (num >= 100 & num < 1000)
+            else 
             {
-                words += $" {singleDigitArray[num / 100]} Hundred ";
-                if (num % 100 > 0 & num % 100 < 10)
+                words += $" {singleDigitArray[num / 100]} Hundred";
+
+                num %= 100;
+
+                if (num < 20)
                 {
-                    words += $" and {singleDigitArray[num % 100]}";
+                    num -= 10;
+                    words += $" and {teensDigitArray[num]}";
                 }
-                else if ((num / 10) % 10 == 1)
+                else if (num % 10 == 0)
                 {
-                    words += $" and {teensDigitArray[num % 10]}";
+                    words += $" and {tenDigitArray[num / 10]}";
                 }
-                else if ((num / 10) % 10 <= 9 & (num / 10) % 10 > 0)
+                else
                 {
-                    words += $" and {tenDigitArray[(num / 10) % 10]} {singleDigitArray[num % 10]}";
+                    words += $" and {tenDigitArray[num / 10]} {singleDigitArray[num % 10]}";
                 }
             }
             return words;
