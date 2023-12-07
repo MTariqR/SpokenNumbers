@@ -50,7 +50,7 @@
                 {
                     break;
                 }
-                Console.WriteLine("Please enter another number up to 4 digits.);
+                Console.WriteLine("Please enter another number up to 4 digits.");
                 numberIn = Console.ReadLine();
             }
         }
