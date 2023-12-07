@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             bool onOff = true;
-            Console.WriteLine("Please enter a number up to 4 digits.");
+            Console.WriteLine("Please enter a number up to 4 digits and the program will write out the number in words.");
             string numberIn = Console.ReadLine();
 
             while (onOff)
@@ -42,8 +42,7 @@
 
                     default:
                         {
-                            Console.WriteLine("Invalid!\n\nGoodbye");
-                            onOff = true;
+                            Console.WriteLine("Invalid!");
                             break;
                         }
                 }
@@ -51,7 +50,7 @@
                 {
                     break;
                 }
-                Console.WriteLine("Please enter another number up to 4 digits.");
+                Console.WriteLine("Please enter another number up to 4 digits.);
                 numberIn = Console.ReadLine();
             }
         }
