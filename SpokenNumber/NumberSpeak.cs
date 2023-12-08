@@ -43,8 +43,11 @@ namespace SpokenNumber
             string words = $"{singleDigitArray[num / 100]} Hundred";
             
             num %= 100;
-
-            if (num < 20)
+            if (num == 0)
+            {
+                return words;
+            }
+            if (num > 0 & num < 20)
             {
                 num -= 10;
                 words += $" and {teensDigitArray[num]}";
@@ -66,6 +69,11 @@ namespace SpokenNumber
             string words = $"{singleDigitArray[num / 1000]} Thousand";
 
             num %= 1000;
+
+            if (num == 0)
+            {
+                return words;
+            }
 
             if (num > 0 & num < 100)
             {
@@ -93,6 +101,11 @@ namespace SpokenNumber
                 words += $" {singleDigitArray[num / 100]} Hundred";
 
                 num %= 100;
+
+                if (num == 0)
+                {
+                    return words;
+                }
 
                 if (num < 20)
                 {
