@@ -9,13 +9,18 @@ namespace SpokenNumber
 {
     internal class NumberSpeak
     {
-        public static string[] singleDigitArray = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
+        public static string[] singleDigitArray = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
         public static string[] tenDigitArray = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
         public static string[] teensDigitArray = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
 
         public static string SingleDigit(int num)
         {
-            return singleDigitArray[num];
+            if (num == 0)
+            {
+                return "Zero";
+            }
+            else
+                return singleDigitArray[num];
         }
 
         public static string DoubleDigit(int num)
@@ -24,12 +29,8 @@ namespace SpokenNumber
 
             if (num < 20)
             {
-                num -= 10;
+                num %= 10;
                 words += teensDigitArray[num];
-            }
-            else if (num % 10 == 0)
-            {
-                words += tenDigitArray[num / 10];
             }
             else
             {
@@ -47,7 +48,11 @@ namespace SpokenNumber
             {
                 return words;
             }
-            if (num > 0 & num < 20)
+            if (num < 10)
+            {
+                words += $" and {singleDigitArray[num]}";
+            }
+            else if (num >= 10 & num < 20)
             {
                 num -= 10;
                 words += $" and {teensDigitArray[num]}";
@@ -107,9 +112,14 @@ namespace SpokenNumber
                     return words;
                 }
 
-                if (num < 20)
+                if (num < 10)
                 {
-                    num -= 10;
+                    num %= 10;
+                    words += $" and {singleDigitArray[num]}";
+                }
+                else if (num < 20)
+                {
+                    num %= 10;
                     words += $" and {teensDigitArray[num]}";
                 }
                 else if (num % 10 == 0)
