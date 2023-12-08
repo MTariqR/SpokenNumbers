@@ -42,7 +42,8 @@
 
                     default:
                         {
-                            Console.WriteLine("Invalid!");
+                            Console.WriteLine("Closing Application.");
+                            onOff = false;
                             break;
                         }
                 }
