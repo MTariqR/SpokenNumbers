@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             bool onOff = true;
-            Console.WriteLine("Please enter a number up to 4 digits and the program will write out the number in words.");
+            Console.WriteLine("Please enter a number up to 4 digits and the program will write out the number in words.\n\nOr press enter without typing a number to exit application.\n");
             string numberIn = Console.ReadLine();
 
             while (onOff)
@@ -39,6 +39,11 @@
                             Console.WriteLine(NumberSpeak.FourDigit(numCon));
                             break;
                         }
+                    case > 4:
+                        {
+                            Console.WriteLine("Invalid. Please try again.\n");
+                            break;
+                        }
 
                     default:
                         {
@@ -51,7 +56,7 @@
                 {
                     break;
                 }
-                Console.WriteLine("Please enter another number up to 4 digits.");
+                Console.WriteLine("Please enter another number up to 4 digits.\n\nOr press enter without typing a number to exit application.\n");
                 numberIn = Console.ReadLine();
             }
         }
